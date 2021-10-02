@@ -25,5 +25,5 @@ public interface IAccesoDatos {
 
     void crear(String nombreRecurso) throws AccesoDatosEx;
 
-    void borrar(String nombreRecutso) throws AccesoDatosEx;
+    void borrar(String nombreRecurso) throws AccesoDatosEx;
 }
