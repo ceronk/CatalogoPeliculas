@@ -28,7 +28,7 @@ public class CatalogoPeliculasImpl implements ICatalogoPeliculas {
         boolean anexar = false;
         try {
             anexar = datos.existe(NOMBRE_RECURSO);
-
+            datos.escribir(pelicula, NOMBRE_RECURSO, anexar);
         } catch (AccesoDatosEx ex) {
             ex.printStackTrace(System.out);
         }
