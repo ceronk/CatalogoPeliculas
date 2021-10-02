@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface IAccesoDatos {
 
-    boolean existe(String nombreArchivo) throws AccesoDatosEx;
+    boolean existe(String nombreRecurso) throws AccesoDatosEx;
 
     List<Pelicula> listar(String nombre) throws LecturaDatosEx;
 
@@ -26,6 +26,4 @@ public interface IAccesoDatos {
     void crear(String nombreRecurso) throws AccesoDatosEx;
 
     void borrar(String nombreRecutso) throws AccesoDatosEx;
-    
-    asdasdasd
 }
