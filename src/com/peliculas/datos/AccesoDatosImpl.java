@@ -6,10 +6,9 @@
 package com.peliculas.datos;
 
 import com.peliculas.domain.Pelicula;
-import com.peliculas.excepciones.AccesoDatosEx;
-import com.peliculas.excepciones.EscrituraDatosEx;
-import com.peliculas.excepciones.LecturaDatosEx;
-import java.util.List;
+import com.peliculas.excepciones.*;
+import java.io.*;
+import java.util.*;
 
 /**
  *
@@ -18,34 +17,41 @@ import java.util.List;
 public class AccesoDatosImpl implements IAccesoDatos{
 
     @Override
-    public boolean existe(String nombreArchivo) throws AccesoDatosEx {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean existe(String nombreRecurso) throws AccesoDatosEx {
+        File archivo = new File(nombreRecurso);
+        return archivo.exists();
     }
 
     @Override
     public List<Pelicula> listar(String nombre) throws LecturaDatosEx {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File archivo = new File(nombre);
+        List<Pelicula> pelicula = new ArrayList<>(); 
+        try {
+            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+            throw new LecturaDatosEx("Excepción al listar peliculas: " + ex.getMessage());
+        }
+        return pelicula;
     }
 
     @Override
     public void escribir(Pelicula pelicula, String nombreRecurso, boolean anexar) throws EscrituraDatosEx {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public String buscar(String nombreRecurso, String buscar) throws LecturaDatosEx {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void crear(String nombreRecurso) throws AccesoDatosEx {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void borrar(String nombreRecutso) throws AccesoDatosEx {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
-    
-    
 }
